@@ -8,6 +8,12 @@ public class Immagine extends ElementoMultimediale implements Luminoso {
 
     public Immagine(String title) {
         super(title);
+        this.luminosita = 50;
+    }
+
+    public void show() {
+        String asterisco = "*";
+        System.out.println(super.getTitle() + asterisco.repeat(this.getLuminosita()));
     }
 
     public int getLuminosita() {

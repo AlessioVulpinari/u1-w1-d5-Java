@@ -5,12 +5,15 @@ import interfaces.Riproducibile;
 
 public class Video extends ElementoMultimediale implements Riproducibile, Luminoso {
 
+    private final int durata;
     private int volume;
-    private int durata;
     private int luminosita;
 
-    public Video(String title) {
+    public Video(String title, int durata) {
         super(title);
+        this.durata = durata;
+        this.volume = 50;
+        this.luminosita = 50;
     }
 
     public int getVolume() {
@@ -23,10 +26,6 @@ public class Video extends ElementoMultimediale implements Riproducibile, Lumino
 
     public int getDurata() {
         return durata;
-    }
-
-    public void setDurata(int durata) {
-        this.durata = durata;
     }
 
     public int getLuminosita() {
@@ -52,7 +51,11 @@ public class Video extends ElementoMultimediale implements Riproducibile, Lumino
 
     @Override
     public void riproduci() {
-
+        String esclamativo = "!";
+        String asterisco = "*";
+        for (int i = 0; i < this.durata; i++) {
+            System.out.println(super.getTitle() + esclamativo.repeat(this.getVolume()) + asterisco.repeat(this.getLuminosita()));
+        }
     }
 
     @Override

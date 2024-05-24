@@ -4,12 +4,13 @@ import interfaces.Riproducibile;
 
 public class Audio extends ElementoMultimediale implements Riproducibile {
 
+    private final int durata;
     private int volume;
-    private int durata;
 
-    public Audio(String title) {
+    public Audio(String title, int durata) {
         super(title);
-
+        this.durata = durata;
+        this.volume = 50;
     }
 
     public int getVolume() {
@@ -24,17 +25,17 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
         return durata;
     }
 
-    public void setDurata(int durata) {
-        this.durata = durata;
-    }
-
     @Override
     public void riproduci() {
-
+        String esclamativo = "!";
+        for (int i = 0; i < this.durata; i++) {
+            System.out.println(super.getTitle() + esclamativo.repeat(this.getVolume()));
+        }
     }
 
     @Override
     public void aumentaVolume() {
+
         if (this.volume == 100) {
             System.out.println("Volume già al massimo!");
         } else setVolume(++volume);
